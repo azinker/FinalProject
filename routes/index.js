@@ -6,7 +6,7 @@ var router = express.Router();
 var welcomeController = require('../controllers/welcome');
 
 // define routes for our application, and send them to route handlers
-router.get('/', welcomeController.index);
+
 
 // router.get(    '/resources',          resourcesController.index)
 // router.get(    '/resources/new',      resourcesController.new)
