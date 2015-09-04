@@ -8,6 +8,7 @@ var resourcesController = require('../controllers/resources');
 // define routes for our application, and send them to route handlers
 
 
+
 router.get(    '/resources',          resourcesController.index);
 
 

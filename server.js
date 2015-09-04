@@ -34,6 +34,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/bower_components',  express.static(__dirname + '/bower_components'));
+app.use('/views',  express.static(__dirname + '/views'));
 
 // insert middleware that points to our route definitions
 
