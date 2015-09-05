@@ -13,10 +13,11 @@ angular.module('storefrontApp')
     $scope.cart = cart;
     $scope.options = options;
     $scope.fields = fields;
-
+    $scope.customer =
+    console.log($scope.customer);
     $scope.createOrder = function() {
       moltin.Cart.Order({
-        customer: '947445503480562327', //guest customer for now
+        customer: $scope.customer, //guest customer for now
         shipping: $scope.data.shipping,
         gateway: $scope.data.gateway,
         bill_to: $scope.data.bill,
