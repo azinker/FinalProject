@@ -1,5 +1,4 @@
 'use strict';
-
 /**
  * @ngdoc function
  * @name storefrontApp.controller:CheckoutCtrl
@@ -9,15 +8,13 @@
  */
 angular.module('storefrontApp')
   .controller('CheckoutCtrl', function ($scope, $rootScope, $location, moltin, cart, options, fields) {
-    $scope.data = {bill: {}, ship: {}, ship_bill: 0, notes: '', shipping: '', gateway: ''}
+    $scope.data = {bill: {}, ship: {}, ship_bill: 0, notes: '', shipping: 'free_shipping', gateway: 'stripe'}
     $scope.cart = cart;
     $scope.options = options;
     $scope.fields = fields;
-    $scope.customer =
-    console.log($scope.customer);
     $scope.createOrder = function() {
       moltin.Cart.Order({
-        customer: $scope.customer, //guest customer for now
+        customer: '1067028605852189242', //guest customer for now
         shipping: $scope.data.shipping,
         gateway: $scope.data.gateway,
         bill_to: $scope.data.bill,
@@ -29,5 +26,5 @@ angular.module('storefrontApp')
         });
       })
     }
-
   });
+
