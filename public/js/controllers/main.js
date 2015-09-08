@@ -11,4 +11,5 @@ angular.module('storefrontApp')
   .controller('MainCtrl', function ($scope, categories, features) {
     $scope.categories = categories;
     $scope.features = features;
+    console.log(categories, features);
   });

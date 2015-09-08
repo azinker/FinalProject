@@ -26,5 +26,6 @@ angular.module('storefrontApp')
         });
       })
     }
+    console.log(cart, options);
   });
 
