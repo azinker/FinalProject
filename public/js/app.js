@@ -20,17 +20,13 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
-      .when('/store', {
-        templateUrl: 'views/store.html',
-        controller: 'StoreCtrl',
+      .when('/', {
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl',
         resolve: {
           categories: function($q, MoltinAuth) {
             var deferred = $q.defer();
