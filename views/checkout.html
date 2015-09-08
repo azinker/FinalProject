@@ -1,6 +1,22 @@
-<h1>Checkout</h1>
+ <div class="row">
+        <div class="col-md-12">
+          <div class="breadcrumbs">
+            <ul class="breadcrumb">
+              <li><a href="#/">Home</a> <span class="divider"></span></li>
+              <li><a href="#/cart">Shopping Cart</a> <span class="divider"></span></li>
+              <li class="active">Checkout</li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
-<form class="form-horizontal" role="form" ng-submit="createOrder(data)">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Checkout</h2>
+        </div>
+      </div>
+
+      <form class="form-horizontal" role="form" ng-submit="createOrder(data)">
 
         <div class="row box">
           <div class="col-md-6">
@@ -49,20 +65,25 @@
               <tfoot>
                 <tr class="subtotal">
                   <td></td>
+                  <td><b>Shipping Cost</b></td>
+                  <td>FREE SHIPPING</td>
+                </tr>
+                <tr class="subtotal">
+                  <td></td>
                   <td><b>Cart Subtotal</b></td>
                   <td>{{ cart.totals.formatted.without_tax }}</td>
                 </tr>
                 <tr class="subtotal">
                   <td></td>
                   <td><b>Order Total</b></td>
-                  <td>{{ cart.totals.formatted.with_tax }}</td>
+                  <td>{{ cart.totals.formatted.without_tax }}</td>
                 </tr>
               </tfoot>
               <tbody>
                 <tr ng-repeat="(key,product) in cart.contents">
-                  <td><a href="#/product/{{ product.id }}">{{ product.title }}</a></td>
+                  <td><a href="/product/{{ product.slug }}">{{ product.title }}</a></td>
                   <td>{{ product.quantity }}</td>
-                  <td>{{ product.totals.formatted.with_tax }}</td>
+                  <td>{{ product.totals.formatted.without_tax }}</td>
                 </tr>
               </tbody>
             </table>
@@ -92,11 +113,15 @@
           <div class="box padding">
             <label class="radio">
               <input type="radio" name="gateway" value="{{ gateway.slug }}" ng-model="data.gateway" checked="checked" />
-              Credit Card
+              Debit/Credit
             </label>
+            <div class="gateway gateway-{{ gateway.slug }}">
+              Pay with your Credit or Debit card
+            </div>
           </div>
         </div>
       </div>
 
       <button class="btn btn-primary pull-right" type="submit" style="margin: 20px 0">Proceed to Payment</button>
+
     </form>

@@ -1,28 +1,7 @@
-<!-- <h1>{{ product.title }}</h1>
-
-<div class="row">
-  <div class="col-sm-6">
-    <a ng-href="#/product/{{product.id}}">
-      <img src="{{product.images[0].url.http}}" alt="{{product.title}}" width="100%"/>
-    </a>
-  </div>
-  <div class="col-sm-6">
-    <strong>{{ product.pricing.formatted.without_tax }}</strong>
-
-    <button ng-if="!addStatus" ng-click="addCart()" class="btn btn-success">Add to Cart</button>
-    <button ng-if="addStatus" class="btn btn-warning">{{addStatus}}</button>
-
-    <div ng-bind-html="product.description"></div>
-  </div>
-</div>
-
-
- -->
-
       <ul class="breadcrumb prod">
         <li><a href="#/">Home</a></li>
 
-        <li><a href="#/category/{{ product.category }}">{{ product.category.value }}</a></li>
+        <li><A HREF="javascript:javascript:history.go(-1)">{{ product.category.value }}</a></li>
 
 
         <li class="active">{{ product.title }}</li>
@@ -46,13 +25,15 @@
             <li><span>Product Code:</span> {{ product.sku }}</li>
             <li><span>Availability: </span> {{ product.stock_status.value }}</li>
 
+
+
           </ul>
 
           <div class="price" ng-if="product.on_sale.data.key != 1">
-            Price <strong>{{ product.pricing.formatted.with_tax }}</strong>
+            Price <strong>{{ product.pricing.formatted.without_tax }}</strong>
           </div>
-
-              <button ng-if="!addStatus" ng-click="addCart()" class="btn btn-success">Add to Cart</button>
+          <br>
+              <button ng-if="!addStatus" ng-click="addCart()" class="btn btn-success">Unlock</button>
               <button ng-if="addStatus" class="btn btn-warning">{{addStatus}}</button><br>
 <br>
           </form>
@@ -62,7 +43,7 @@
           </ul>
           <div class="tab-content">
             <div class="tab-pane active" id="home">
-              {{ product.description }}
+              <div ng-bind-html="product.description"></div>
             </div>
           </div>
         </div>
