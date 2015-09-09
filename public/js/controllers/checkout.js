@@ -15,7 +15,7 @@ angular.module('storefrontApp')
     $scope.fields = fields;
 
     $scope.createOrder = function() {
-      moltin.Cart.Order({
+      moltin.Cart.Complete({
         customer: '1069796748437750328', //guest customer for now
         shipping: $scope.data.shipping,
         gateway: $scope.data.gateway,

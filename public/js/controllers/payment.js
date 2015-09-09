@@ -18,4 +18,5 @@ angular.module('storefrontApp')
         });
       });
     }
+    console.log($rootScope);
   });

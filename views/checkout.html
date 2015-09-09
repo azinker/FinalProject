@@ -16,11 +16,14 @@
         </div>
       </div>
 
-      <form class="form-horizontal" role="form" ng-submit="createOrder(data)">
+
+<form class="form-horizontal" role="form" ng-submit="createOrder(data)">
 
         <div class="row box">
           <div class="col-md-6">
             <h3>Billing Address</h3>
+
+
             <div class="billing-address">
               <div class="form-group" ng-repeat="field in fields" ng-if="field.slug != 'customer'" >
                 <label class="col-md-4 control-label" for="bill_{{ field.slug }}">{{ field.name }}<span class="required" ng-if="field.required">*</span></label>
@@ -31,6 +34,8 @@
               </div>
             </div>
           </div>
+
+
           <div class="col-md-6">
             <div class="shiptobilling clearfix">
               <h3>Shipping Address</h3>
@@ -38,6 +43,8 @@
                 <input type="checkbox" value="1" ng-model="data.ship_bill" onclick="jQuery('.shipping-address').toggle()" />Ship to billing address?
               </label>
             </div>
+
+
             <div class="shipping-address" style="display: block">
               <div class="form-group" ng-repeat="field in fields" ng-if="field.slug != 'customer'" >
                 <label class="col-md-4 control-label" for="ship_{{ field.slug }}">{{ field.name }} <span class="required" ng-if="field.required">*</span></label>
@@ -49,6 +56,8 @@
             </div>
           </div>
         </div>
+
+
 
       <div class="row">
         <div class="col-md-12">
@@ -71,19 +80,19 @@
                 <tr class="subtotal">
                   <td></td>
                   <td><b>Cart Subtotal</b></td>
-                  <td>{{ cart.totals.formatted.without_tax }}</td>
+                  <td>{{ cart.totals.post_discount.formatted.without_tax }}</td>
                 </tr>
                 <tr class="subtotal">
                   <td></td>
                   <td><b>Order Total</b></td>
-                  <td>{{ cart.totals.formatted.without_tax }}</td>
+                  <td>{{ cart.totals.post_discount.formatted.without_tax }}</td>
                 </tr>
               </tfoot>
               <tbody>
                 <tr ng-repeat="(key,product) in cart.contents">
-                  <td><a href="/product/{{ product.slug }}">{{ product.title }}</a></td>
+                  <td><a href="#/product/{{product.id}}">{{ product.title }}</a></td>
                   <td>{{ product.quantity }}</td>
-                  <td>{{ product.totals.formatted.without_tax }}</td>
+                  <td>{{ product.totals.pre_discount.formatted.without_tax }}</td>
                 </tr>
               </tbody>
             </table>
@@ -93,7 +102,7 @@
                 <div class="carrier" ng-repeat="carrier in options.shipping.methods">
                   <label class="radio">
                     <input type="radio" name="carrier" value="{{ carrier.slug }}" ng-model="data.shipping" checked="checked" />
-                    {{ carrier.name }}
+                    {{ carrier.title }}
                   </label>
                   <div class="carrier-{{ carrier.slug }}">
                     {{ carrier.description }}
@@ -113,14 +122,15 @@
           <div class="box padding">
             <label class="radio">
               <input type="radio" name="gateway" value="{{ gateway.slug }}" ng-model="data.gateway" checked="checked" />
-              Debit/Credit
+              {{ gateway.name }}
             </label>
             <div class="gateway gateway-{{ gateway.slug }}">
-              Pay with your Credit or Debit card
+              {{ gateway.description }}
             </div>
           </div>
         </div>
       </div>
+
 
       <button class="btn btn-primary pull-right" type="submit" style="margin: 20px 0">Proceed to Payment</button>
 

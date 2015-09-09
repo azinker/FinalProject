@@ -10,6 +10,9 @@ var resourcesController = require('../controllers/resources');
 
 
 router.get(    '/resources',          resourcesController.index);
+router.get(    '/store',              resourcesController.store);
+
+
 
 
 // router.get(    '/resources/new',      resourcesController.new)

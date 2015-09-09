@@ -14,4 +14,5 @@ angular.module('storefrontApp')
       'AngularJS',
       'Karma'
     ];
+    console.log($scope);
   });

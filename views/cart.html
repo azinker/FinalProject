@@ -36,9 +36,10 @@
                   <td>{{ product.sku }}</td>
                   <td>{{ product.pricing.formatted.without_tax }}</td>
                   <td class="quantity">
+
                     {{product.quantity}}
                   </td>
-                  <td class="total">{{ product.pricing.formatted.without_tax }}</td>
+                  <td class="total">{{ product.totals.pre_discount.formatted.without_tax }}</td>
                 </tr>
               </tbody>
             </table>
@@ -61,7 +62,7 @@
             <table class="table">
               <tr>
                 <th>Cart Subtotal</th>
-                <td>{{ cart.totals.formatted.without_tax }}</td>
+                <td>{{ cart.totals.pre_discount.formatted.without_tax }}</td>
               </tr>
               <tr>
                 <th>Shipping</th>
@@ -69,7 +70,7 @@
               </tr>
               <tr>
                 <th><span>Order Total</span></th>
-                <td>{{ cart.totals.formatted.without_tax }}</td>
+                <td>{{ cart.totals.pre_discount.formatted.without_tax }}</td>
               </tr>
             </table>
             <p>
@@ -78,3 +79,7 @@
           </div>
         </div>
       </div>
+
+
+
+

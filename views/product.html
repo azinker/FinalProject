@@ -30,7 +30,7 @@
           </ul>
 
           <div class="price" ng-if="product.on_sale.data.key != 1">
-            Price <strong>{{ product.pricing.formatted.without_tax }}</strong>
+            Price <strong>{{ product.price.data.formatted.without_tax }}</strong>
           </div>
           <br>
               <button ng-if="!addStatus" ng-click="addCart()" class="btn btn-success">Unlock</button>

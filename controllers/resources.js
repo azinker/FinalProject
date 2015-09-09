@@ -8,6 +8,10 @@ var index = function(req, res, next) {
   });
 };
 
+var store = function registerdo (req, res) {
+  res.render('public/store');
+};
+
 var show = function(req, res, next) {
   Resource.findById(req.params.id, function(err, resource) {
     if (err) res.send(err);
@@ -31,6 +35,7 @@ var create = function(req, res, next) {
 
 module.exports = {
   index:  index,
+  store: store,
   show:   show,
   new:    newRoute,
   create: create
