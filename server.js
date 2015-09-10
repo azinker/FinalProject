@@ -6,11 +6,10 @@ var logger       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 
-// check that MongoD is running...
-require('net').connect(27017, 'localhost').on('error', function() {
-  console.log("YOU MUST BOW BEFORE THE MONGOD FIRST, MORTAL!");
-  process.exit(0);
-});
+// require modules for mongoose and passport
+var mongoose = require('mongoose');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 // loading routes defined in the /routes folder
 var routes = require('./routes/index');
@@ -22,6 +21,8 @@ mongoose.connect('mongodb://localhost/mean-server-template');
 // start running express, and save the configurations for the express
 // "app" with the variable `app`.
 var app = express();
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -37,7 +38,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 app.use('/views',  express.static(__dirname + '/views'));
 
-// insert middleware that points to our route definitions
+// auth middleware
+app.use(require('express-session')({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+// passport config
+var User = require('./models/User');
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 // DEFINED ROUTES ARE IN HERE >> routes, ie './routes/index'
 app.use('/', routes);
@@ -72,6 +86,9 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+
+
 
 
 module.exports = app;
