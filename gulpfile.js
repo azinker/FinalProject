@@ -15,5 +15,5 @@ gulp.task('styles', function() {
    .pipe(gulp.dest('public/css'));
 });
 
-gulp.task('default', ['styles', 'scripts']);
+gulp.task('default', ['styles', 'scripts', 'scripts2']);
 
