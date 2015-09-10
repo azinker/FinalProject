@@ -6,7 +6,6 @@ var uglify = require('gulp-uglify');
 gulp.task('scripts', function() {
  return gulp.src(['public/js/controllers/*.js'])
    .pipe(concat('allStoreControllers.min.js'))
-   .pipe(uglify())
    .pipe(gulp.dest('public/js/controllers'));
 });
 
@@ -16,5 +15,5 @@ gulp.task('styles', function() {
    .pipe(gulp.dest('public/css'));
 });
 
-gulp.task('default', ['styles']);
+gulp.task('default', ['styles', 'scripts']);
 
