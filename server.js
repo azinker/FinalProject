@@ -14,9 +14,23 @@ var LocalStrategy = require('passport-local').Strategy;
 // loading routes defined in the /routes folder
 var routes = require('./routes/index');
 
-// load mongoose and connect to a database
+// // // load mongoose and connect to a database
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/mean-server-template');
+mongoose.connect('mongodb://USERNAME:PASSWORD@apollo.modulusmongo.net:27017/i6hojIxu');
+
+// ​if (process.env.NODE_ENV === 'production') {
+//  mongoose.connect('mongodb://admin:shachar@apollo.modulusmongo.net:27017/i6hojIxu');
+//  app.use(session({
+//    secret: 'keyboard cat',
+//    saveUninitialized: false, // don't create session until something stored
+//    resave: false, //don't save session if unmodified
+//    store: new MongoStore({
+//        url: 'mongodb://admin:shachar@apollo.modulusmongo.net:27017/i6hojIxu',
+//        touchAfter: 24 * 3600 // time period in seconds
+//    })
+//  }));
+// }
+
 
 // start running express, and save the configurations for the express
 // "app" with the variable `app`.
@@ -67,15 +81,15 @@ app.use(function(req, res, next) {
 
 // development error handler
 // will print stacktrace
-if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
-  });
-}
+// if (app.get('env') === 'development') {
+//   app.use(function(err, req, res, next) {
+//     res.status(err.status || 500);
+//     res.render('error', {
+//       message: err.message,
+//       error: err
+//     });
+//   });
+// }
 
 // production error handler
 // no stacktraces leaked to user
