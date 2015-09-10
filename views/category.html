@@ -14,15 +14,30 @@
 
 <h1>{{ category.title }}</h1>
 
-<div class="row">
-  <div class="col-sm-2" ng-repeat="prod in products">
-    <a ng-href="#/product/{{prod.id}}">
-      <img src="{{prod.images[0].url.http}}" alt="{{prod.title}}" width="100%"/>
-    <p>{{ prod.title }}</p>
-    </a>
-    <p>{{ prod.pricing.formatted.without_tax }}</p>
-  </div>
-</div>
+
+
+<div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="prod in products">
+                        <div class="thumbnail">
+                            <a class="example-image-link" href="{{prod.images[0].url.http}}" data-lightbox="example-set" data-title="Click the right half of the image to move forward."><img src="{{prod.images[0].url.http}}" alt="{{prod.title}}" width="100%" data-lightbox="example-set"/></a>
+                            <div class="caption">
+                                <p><a ng-href="#/product/{{prod.id}}">{{ prod.title }}</a></p>
+                                </h4>
+                                <h3 class="pull-right">{{ prod.price.data.formatted.without_tax }}</h3>
+                                <p>{{ prod.sku }}</p>
+                            </div>
+                            <div class="ratings">
+                                <p class="pull-right">15 reviews</p>
+                                <p>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
 
 
 

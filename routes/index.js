@@ -9,7 +9,8 @@ var resourcesController = require('../controllers/resources');
 
 
 
-router.get(    '/resources',          resourcesController.index);
+router.get(    '/',                   resourcesController.index);
+router.get(    '/contact',            resourcesController.contact);
 router.get(    '/store',              resourcesController.store);
 
 

@@ -41,7 +41,7 @@ angular
             var deferred = $q.defer();
             MoltinAuth.then(function(moltin) {
               //"Homepage Features" collection
-              moltin.Product.List({collection:'947420948187841171'}, function(collection) {
+              moltin.Product.List({collection:'1070546802316411880'}, function(collection) {
                 deferred.resolve(collection);
               });
             });
