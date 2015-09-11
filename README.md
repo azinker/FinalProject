@@ -24,6 +24,8 @@ My company is The Perfect Part inc. We distribute and sell wholesale technology 
   - Stripe
   - Moltin API
 - **Libraries/Languages**
+  - HTML
+  - JavaScript
   - jQuery
     - jQuery Easing
   - Node
