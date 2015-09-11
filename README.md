@@ -1,6 +1,6 @@
-#LA Kitchen Gardens
+#The Perfect Part Inc.
 
-LA Kitchen Gardens provides a way for Angelinos to connect and share with their local gardening community.  Users can "follow" each other, post photos and comments of their plants and gardens, swap seeds, and share their harvests with neighbors.
+My company is The Perfect Part inc. We distribute and sell wholesale technology parts domestically. One of the most common questions we get is "Can you unlock my device". Yea we can, but we dont have any "product" online for this service. So creating this eCommerce plateform, we can now implement real products and services allowing buyers to purchase using a credit card or debit card. 
 
 
 ![Landing Page](http://i.imgur.com/aKS6M2m.jpg)
