@@ -37,6 +37,8 @@ My company is The Perfect Part inc. We distribute and sell wholesale technology 
   - package.json
 - **Database**
   - MongoDB
+- **Deployment**
+ - Modulous.io
 
 ## Overall App Design
 The application used all the conventional express routing techniques as well as ngRoute when it directs to the angular store. None of the information or webpages on the app are static besides libraries and plugins. The overall goal of the app was to allow users to quickly make a purchase without any issues using just a credit card. The main goal was to make a dynamic store that did not need recoding when a new product came along. Another main goal was to allow users to just use a credit card and not a paypal or some other login payment system.
